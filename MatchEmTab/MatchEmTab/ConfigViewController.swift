@@ -23,7 +23,7 @@ class ConfigViewController: UIViewController {
 
     @IBAction func rectSpeedChange(_ sender: UISlider) {
         
-        let range = (1 - Double(sender.value)) * ((gameVC!.newRectIntervalMax) - (gameVC!.newRectIntervalMin)) + gameVC!.newRectIntervalMin
+        let range = (1 - Double(sender.value)) * ((gameVC!.newMax) - (gameVC!.newMin)) + gameVC!.newMin
         
         gameVC?.newRectInterval =  (TimeInterval( range ))
         let speed = 1 / (gameVC!.newRectInterval)

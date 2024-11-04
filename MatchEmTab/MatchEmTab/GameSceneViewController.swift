@@ -7,25 +7,25 @@ class GameSceneViewController: UIViewController {
         }
 
     required init?(coder aDecoder: NSCoder) {
-        self.secondCount = Int(self.gameDuration)
+        self.secondCount = Int(self.duration)
         super.init(coder: aDecoder)
     }
 
     @IBOutlet weak var gameInfoLabel: UILabel!
 
-    private var gameTimer: Timer?
+    private var timerLeft: Timer?
 
     private var gameRunning    = false
     
     public var newRectInterval: TimeInterval = 1.2
     
-    public var newRectIntervalMax: TimeInterval = 5.0
-    public var newRectIntervalMin = 0.1
+    public var newMax: TimeInterval = 5.0
+    public var newMin = 0.1
 
-    public var gameDuration: TimeInterval = 12.0 + 1
+    public var duration: TimeInterval = 12.0 + 1
     
-    public var gameDurationMin: TimeInterval = 20.0
-    public var gameDurationMax: TimeInterval = 1.0
+    public var durationMin: TimeInterval = 20.0
+    public var durationMax: TimeInterval = 1.0
 
     
     private var isFirstClick: Bool = true
@@ -140,7 +140,7 @@ class GameSceneViewController: UIViewController {
     func startNewGame() {
         removeSavedRectangles()
 
-        self.secondCount = Int(self.gameDuration)
+        self.secondCount = Int(self.duration)
         
         rectanglesCreated = 0
         rectanglesTouched = 0
@@ -154,9 +154,9 @@ class GameSceneViewController: UIViewController {
 
 }
 
-    private let rectSizeMin:CGFloat =  50.0
-    private let rectSizeMax:CGFloat = 150.0
-    private var pairsCreated = 0
+    private let min:CGFloat =  50.0
+    private let max:CGFloat = 150.0
+    private var createPair = 0
     private var rectanglesMatched = 0
     private var rectangles = [UIButton]()
     private var newRectTimer: Timer?
@@ -224,7 +224,7 @@ extension GameSceneViewController {
     }
     
     private func createRectangle() -> UIButton {
-        let randSize     = Utility.getRandomSize(fromMin: rectSizeMin, throughMax: rectSizeMax)
+        let randSize     = Utility.getRandomSize(fromMin: min, throughMax: max)
         let randLocation = Utility.getRandomLocation(size: randSize, screenSize: view.bounds.size)
         let randomFrame  = CGRect(origin: randLocation, size: randSize)
         let rectangle = UIButton(frame: randomFrame)
@@ -282,7 +282,7 @@ extension GameSceneViewController {
             newRectTimer?.invalidate()
             remainingTimer?.invalidate()
             newRectTimer = nil
-            gameTimer    = nil
+            timerLeft    = nil
         }
         
     }
