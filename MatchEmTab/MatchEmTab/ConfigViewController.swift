@@ -20,7 +20,6 @@ class ConfigViewController: UIViewController {
         gameVC = self.tabBarController!.viewControllers![0]
             as? GameSceneViewController
     }
-    
 
     @IBAction func rectSpeedChange(_ sender: UISlider) {
         
@@ -31,7 +30,6 @@ class ConfigViewController: UIViewController {
         speedLabel.text = "Speed : \(String(format: "%.2f", speed))"
     }
     
-    
     @IBAction func changeBackgroundColor(_ sender: UISegmentedControl) {
         if (sender.selectedSegmentIndex == 0) {
             gameVC?.view?.backgroundColor = .white
@@ -39,11 +37,7 @@ class ConfigViewController: UIViewController {
             gameVC?.view?.backgroundColor = .blue
         }
     }
-    
-    
- 
-    
-    
+
     
     @IBAction func switchMatchEmoji(_ sender: UISegmentedControl) {
         
@@ -53,10 +47,6 @@ class ConfigViewController: UIViewController {
             gameVC?.matchEmoji = "🖖"
         }
     }
-    
-    
-    
-    
     
     @IBAction func changeRectFill(_ sender: UISegmentedControl) {
         gameVC?.rectFill = (sender.selectedSegmentIndex == 0)
