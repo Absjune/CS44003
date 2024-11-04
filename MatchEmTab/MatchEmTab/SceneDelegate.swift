@@ -1,10 +1,4 @@
-//
-//  SceneDelegate.swift
-//  MatchEmTab
-//
-//  Created by AJ Hughes on 11/19/20.
-//  Copyright © 2020 AJ Hughes. All rights reserved.
-//
+
 
 import UIKit
 

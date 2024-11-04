@@ -1,10 +1,3 @@
-//
-//  ConfigViewController.swift
-//  MatchEmTab
-//
-//  Created by AJ Hughes on 11/19/20.
-//  Copyright © 2020 AJ Hughes. All rights reserved.
-//
 
 import UIKit
 
@@ -30,7 +23,6 @@ class ConfigViewController: UIViewController {
     
 
     @IBAction func rectSpeedChange(_ sender: UISlider) {
-        //var max = gameVC
         
         let range = (1 - Double(sender.value)) * ((gameVC!.newRectIntervalMax) - (gameVC!.newRectIntervalMin)) + gameVC!.newRectIntervalMin
         
@@ -70,27 +62,6 @@ class ConfigViewController: UIViewController {
         gameVC?.rectFill = (sender.selectedSegmentIndex == 0)
 
     }
-    
-    
- 
-    
-    /*
-    @IBAction func onGameLengthChanged(_ sender: UISlider) {
-        
-        let range = (1 - Double(sender.value)) * ((gameVC!.gameDurationMax) - (gameVC!.gameDurationMin)) + gameVC!.gameDurationMin
-        
-        gameVC?.gameDuration =  (TimeInterval( range ))
-        let length = (gameVC!.gameDuration)
-        gameLengthLabel.text = "Game Length : \(String(format: "%.2f", length))"
-        gameVC?.secondCount = Int(length)
-        
-        gameVC?.stopGameRunning()
-        gameVC?.startGameRunning()
-        
-    }
- 
- */
-
     
     @IBAction func maxSizeChange(_ sender: UISlider) {
     }
